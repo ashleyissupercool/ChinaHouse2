@@ -1,24 +1,23 @@
 function Footer() {
   return (
-    <footer
-      className="relative w-[1282px] h-[174px] mx-auto overflow-hidden"
-      aria-label="Site footer"
-    >
-      <div className="flex w-[calc(100%_-_128px)] h-[calc(100%_-_6px)] items-start gap-[120px] px-0 py-20 relative top-[43px] left-16 border-t [border-top-style:solid] border-[#0000001a]">
-        <div className="relative w-[1142px] h-8 mb-[-24.00px]">
-          <p className="absolute -top-2 left-0 w-[307px] h-[21px] flex items-center [font-family:'Inter-Medium',Helvetica] font-medium text-[#0000008c] text-[13px] tracking-[-0.07px] leading-[18.9px] whitespace-nowrap">
-            © 2026. ChinaHouseFairburn. All rights reserved.
-          </p>
-          <div className="absolute top-[-70px] left-0 w-[1155px] h-[70px]">
-            <div className="relative left-[calc(50.00%_-_50px)] w-[100px] h-[70px] flex justify-center">
-              <h2 className="flex items-center justify-center w-[386px] h-[53px] ml-[116px] [font-family:'Inter-SemiBold',Helvetica] font-semibold text-black text-[32px] text-center tracking-[-0.64px] leading-[46.4px] whitespace-nowrap">
-                CHINAHOUSEFAIRBURN
-              </h2>
+    <footer className="mx-auto w-full max-w-[1282px]" aria-label="Site footer">
+      <div className="border-t border-[#0000001a] px-5 py-8 lg:hidden">
+        <h2 className="text-center text-[22px] font-semibold tracking-[-0.4px] text-black">CHINAHOUSEFAIRBURN</h2>
+        <address className="mt-2 text-center text-sm font-medium not-italic text-black">17 Hudson Plz, Fairburn GA, 30213</address>
+        <p className="mt-6 text-left text-xs font-medium text-[#0000008c]">© 2026. ChinaHouseFairburn. All rights reserved.</p>
+      </div>
+
+      <div className="relative hidden h-[174px] overflow-hidden lg:block">
+        <div className="absolute top-[43px] left-16 flex h-[calc(100%_-_6px)] w-[calc(100%_-_128px)] items-start gap-[120px] border-t border-[#0000001a] py-20">
+          <div className="relative mb-[-24px] h-8 w-[1142px]">
+            <p className="absolute -top-2 left-0 flex h-[21px] w-[307px] items-center text-[13px] font-medium tracking-[-0.07px] text-[#0000008c]">© 2026. ChinaHouseFairburn. All rights reserved.</p>
+            <div className="absolute top-[-70px] left-0 h-[70px] w-[1155px]">
+              <div className="relative left-[calc(50%_-_50px)] flex h-[70px] w-[100px] justify-center">
+                <h2 className="ml-[116px] flex h-[53px] w-[386px] items-center justify-center whitespace-nowrap text-center text-[32px] font-semibold tracking-[-0.64px] text-black">CHINAHOUSEFAIRBURN</h2>
+              </div>
             </div>
+            <address className="absolute top-[-22px] left-[calc(50%_-_131px)] flex h-[27px] w-[391px] items-center justify-center whitespace-nowrap text-center text-base font-medium tracking-[0.32px] text-black not-italic">17 Hudson Plz, Fairburn GA, 30213</address>
           </div>
-          <address className="absolute top-[-22px] left-[calc(50.00%_-_131px)] w-[391px] h-[27px] flex items-center justify-center not-italic [font-family:'Inter-Medium',Helvetica] font-medium text-black text-base text-center tracking-[0.32px] leading-[23.2px] whitespace-nowrap">
-            17 Hudson Plz, Fairburn GA, 30213
-          </address>
         </div>
       </div>
     </footer>
