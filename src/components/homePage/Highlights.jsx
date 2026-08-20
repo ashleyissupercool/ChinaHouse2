@@ -32,13 +32,13 @@ function Highlights() {
         </div>
       </main>
       <div className="mt-6 flex justify-center">
-        <button
-          type="button"
+        <a
+          href="/menu"
           className="flex h-[44px] w-[190px] items-center justify-center rounded-lg bg-[#ffdca2] text-[16px] font-extrabold leading-[49.3px] tracking-[-0.17px] text-black lg:h-[75px] lg:w-[323px] lg:text-[30px] [font-family:'Inter-ExtraBold',Helvetica]"
           aria-label="View Full Menu"
         >
           <span className="whitespace-nowrap">VIEW FULL MENU</span>
-        </button>
+        </a>
       </div>
     </section>
     

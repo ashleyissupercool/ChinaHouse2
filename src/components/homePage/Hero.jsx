@@ -15,15 +15,15 @@ function Hero() {
           </section>
 
           <div className="mt-6 flex w-full flex-col items-center justify-center gap-4 lg:mt-8 lg:w-[581px] lg:flex-row lg:gap-20">
-            <a className="font-medium text-black text-[20px] lg:text-[24px] tracking-[-0.14px] underline whitespace-nowrap" href="#" target="_blank" rel="noreferrer">
+            <a className="font-medium text-black text-[20px] lg:text-[24px] tracking-[-0.14px] underline whitespace-nowrap" href="/menu">
               SEE MENU
             </a>
 
-            <button type="button" className="flex h-[44px] w-[190px] items-center justify-center rounded-lg bg-[#ff8e8e] transition-colors hover:bg-[#ff7575] lg:h-[50px] lg:w-[253px]">
-              <span className="whitespace-nowrap text-center text-[16px] font-medium tracking-[-0.12px] text-black lg:text-[22px]">
+            <a href="/menu" className="flex h-[44px] w-[190px] items-center justify-center rounded-lg bg-[#ff8e8e] transition-colors hover:bg-[#ff7575] lg:h-[50px] lg:w-[253px]">
+              <span className="whitespace-nowrap text-center text-[16px] font-medium tracking-[-0.12px] text-black lg:text-[22px]" >
                 CREATE AN ORDER
               </span>
-            </button>
+            </a>
           </div>
         </div>
 
