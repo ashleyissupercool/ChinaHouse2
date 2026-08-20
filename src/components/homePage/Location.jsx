@@ -11,9 +11,26 @@ const businessDetails = {
   ],
 }
 
+function LocationPinIcon() {
+  return (
+    <svg aria-hidden="true" viewBox="0 0 24 24" className="mt-1 h-6 w-6 shrink-0" fill="none" stroke="currentColor" strokeWidth="2">
+      <path d="M20 10c0 5-8 12-8 12S4 15 4 10a8 8 0 1 1 16 0Z" />
+      <circle cx="12" cy="10" r="2.5" />
+    </svg>
+  );
+}
+
+function PhoneIcon() {
+  return (
+    <svg aria-hidden="true" viewBox="0 0 24 24" className="h-6 w-6 shrink-0" fill="none" stroke="currentColor" strokeWidth="2">
+      <path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.3 19.3 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 2 .8 2.9a2 2 0 0 1-.5 2.1L8.1 10a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.5c.9.4 1.9.7 2.9.8a2 2 0 0 1 1.6 1.9Z" />
+    </svg>
+  );
+}
+
 function Location() {
   return (
-    <>
+    <div id="location">
     <main className="relative mx-auto hidden h-[1087px] w-[1283px] bg-[#FFF6EE] lg:block" aria-label="Location">
       <div
         className=" whitespace-nowrap absolute top-[90px] left-[371px] flex h-[98px] w-[541px] items-center justify-center [font-family:'Inter-Black',Helvetica] text-center text-[64px] font-black leading-[70.4px] tracking-[-1.92px] text-black"
@@ -33,16 +50,22 @@ function Location() {
         className="absolute top-[340px] left-[82px] grid w-[1120px] grid-cols-[541px_541px] gap-[38px] text-center text-black"
         aria-label={`${businessDetails.name} contact information and hours`}
       >
-        <div className="flex flex-col items-center gap-6">
-          <address className="not-italic [font-family:'Inter-Regular',Helvetica] text-[28px] leading-[46.4px] tracking-[-0.16px]">
-            {businessDetails.address}
-          </address>
+        <div className="flex w-full flex-col items-start gap-6">
+          <div className="grid w-full grid-cols-[24px_1fr_24px] items-start gap-3">
+            <LocationPinIcon />
+            <address className="text-center not-italic [font-family:'Inter-Regular',Helvetica] text-[28px] leading-[46.4px] tracking-[-0.16px]">
+              {businessDetails.address}
+            </address>
+            <span aria-hidden="true" />
+          </div>
           <a
-            className="[font-family:'Inter-Medium',Helvetica] text-[26px] font-medium leading-[39.2px] tracking-[-0.14px] underline"
+            className="grid w-full grid-cols-[24px_1fr_24px] items-center gap-3 [font-family:'Inter-Medium',Helvetica] text-[26px] font-medium leading-[39.2px] tracking-[-0.14px] underline"
             href="tel:+17709640099"
             aria-label={`Call ${businessDetails.name} at ${businessDetails.phone}`}
           >
-            {businessDetails.phone}
+            <PhoneIcon />
+            <span className="text-center">{businessDetails.phone}</span>
+            <span aria-hidden="true" />
           </a>
         </div>
         <dl className="[font-family:'Inter-Regular',Helvetica] text-[26px] leading-[40.6px] tracking-[-0.04px]">
@@ -84,10 +107,18 @@ function Location() {
     <section className="mx-auto w-[calc(100%-2rem)] max-w-[700px] rounded-[20px] bg-[#FFF6EE] px-5 py-9 text-center lg:hidden" aria-label="Location">
       <h2 className="text-[30px] font-black leading-tight tracking-[-0.8px] sm:text-[36px]">VISIT US TODAY!</h2>
       <div className="mt-8 grid gap-8 sm:grid-cols-2 sm:items-start">
-        <div className="p-2">
+        <div className="p-2 text-left">
           <h3 className="text-[23px] font-black text-[#ff5c5c] sm:text-[26px]">CHINA HOUSE</h3>
-          <address className="mt-3 not-italic text-[16px] leading-relaxed sm:text-lg">{businessDetails.address}</address>
-          <a className="mt-2 inline-block text-[16px] font-medium underline sm:text-lg" href="tel:+17709640099">{businessDetails.phone}</a>
+          <div className="mt-3 grid grid-cols-[24px_1fr_24px] items-start gap-2">
+            <LocationPinIcon />
+            <address className="text-center not-italic text-[16px] leading-relaxed sm:text-lg">{businessDetails.address}</address>
+            <span aria-hidden="true" />
+          </div>
+          <a className="mt-3 grid grid-cols-[24px_1fr_24px] items-center gap-2 text-[16px] font-medium underline sm:text-lg" href="tel:+17709640099">
+            <PhoneIcon />
+            <span className="text-center">{businessDetails.phone}</span>
+            <span aria-hidden="true" />
+          </a>
         </div>
         <div className="p-2">
           <h3 className="text-[23px] font-black text-[#ff5c5c] sm:text-[26px]">HOURS</h3>
@@ -112,7 +143,7 @@ function Location() {
         </figure>
       </div>
     </section>
-    </>
+    </div>
   )
 }
 

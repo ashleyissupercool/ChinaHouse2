@@ -5,12 +5,12 @@ function Header() {
   const navigationItems = [
     { label: "HOME", href: "/", className: "w-[60px] ml-[-322px]" },
     { label: "MENU", href: "/menu", className: "w-[60px] ml-11" },
-    { label: "CONTACT", href: "/", className: "w-[97px] ml-[27px]" },
+    { label: "CONTACT", href: "/#location", className: "w-[97px] ml-[27px]" },
     { label: "FAQ", href: "/#faq", className: "w-[39px] ml-[30px]" },
   ];
 
   return (
-    <header className="relative mx-auto w-full max-w-[1283px] bg-[#ffeaea] border-b-2 [border-bottom-style:solid] border-[#00000033] lg:h-[162px]">
+    <header className="relative mx-auto w-full max-w-[1283px] bg-[#ffeaea] lg:h-[162px] before:absolute before:bottom-0 before:left-1/2 before:h-0.5 before:w-screen before:-translate-x-1/2 before:bg-[#00000033]">
       <div className="flex h-[86px] items-center justify-between px-5 lg:hidden">
         <a className="font-black text-[32px] tracking-[-1.2px] text-black" href="#home" aria-label="Chinahouse home">CHINAHOUSE</a>
         <button type="button" className="flex h-11 w-11 flex-col items-center justify-center gap-1.5 rounded-lg border border-black/20" aria-label="Toggle navigation menu" aria-expanded={menuOpen} onClick={() => setMenuOpen((open) => !open)}>
