@@ -1,6 +1,11 @@
 import burbenChickenImage from "../../../assets/burbenchicken.jpg";
+import { useOrder } from "../../../context/order.js";
 
-function BourbonChickenSection() {
+const highlightItem = { id: "highlight-burben-chicken-large", name: "Burben Chicken (Large)", price: 15.50 };
+
+function BourbonChickenSection({ onAdded }) {
+  const { addToOrder } = useOrder();
+
   return (
     <article
       className="absolute left-0 top-0 flex h-[456px] w-[423px] flex-col items-start rounded-[20px]"
@@ -36,6 +41,7 @@ function BourbonChickenSection() {
       </p>
       <button
         type="button"
+        onClick={() => { addToOrder(highlightItem, undefined, 1, "w. White Rice on side"); onAdded?.(highlightItem.name); }}
         className="absolute left-[116px] top-[378px] flex h-[42px] w-48 items-center justify-center rounded-lg bg-[#ff8e8e] focus:outline-none focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-offset-2"
         aria-label="Add Burben Chicken to order"
       >

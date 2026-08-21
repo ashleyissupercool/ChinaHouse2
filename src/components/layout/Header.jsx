@@ -53,7 +53,7 @@ function Header() {
         className="flex w-[151px] h-12 items-center justify-center absolute top-14 right-[86px] bg-[#ff8e8e] rounded-lg [font-family:'Inter-Medium',Helvetica] font-medium text-black text-2xl text-center tracking-[-0.12px] leading-[34.8px] whitespace-nowrap"
         href="/order-list"
       >
-        ORDERLIST
+        ORDER LIST
       </a>
       </div>
     </header>

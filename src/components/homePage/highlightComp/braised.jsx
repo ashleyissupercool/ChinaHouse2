@@ -1,6 +1,11 @@
 import braisedWingsImage from "../../../assets/braisedwingssfr.jpg";
+import { useOrder } from "../../../context/order.js";
 
-function BraisedWingsSection() {
+const highlightItem = { id: "highlight-braised-wings-house-special", name: "Braised Wings (8) (House Special)", price: 10.75 };
+
+function BraisedWingsSection({ onAdded }) {
+  const { addToOrder } = useOrder();
+
   return (
     <article
       className="absolute left-0 top-0 flex h-[456px] w-[423px] flex-col items-start rounded-[20px]"
@@ -31,11 +36,12 @@ function BraisedWingsSection() {
           <br />
         </span>
         <span className="[font-family:'Inter-SemiBold',Helvetica] font-semibold tracking-[-0.02px] text-black">
-          $15.50
+          $10.75
         </span>
       </p>
       <button
         type="button"
+        onClick={() => { addToOrder(highlightItem, undefined, 1, "w. Shrimp Fried Rice"); onAdded?.(highlightItem.name); }}
         className="absolute left-[116px] top-[378px] flex h-[42px] w-48 items-center justify-center rounded-lg bg-[#ff8e8e] focus:outline-none focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-offset-2"
         aria-label="Add Braised Wings to order"
       >

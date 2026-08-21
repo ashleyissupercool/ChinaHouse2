@@ -1,4 +1,5 @@
 import frontView from "../../assets/China House front.jpg"
+import { useEffect, useRef, useState } from "react";
 
 const businessDetails = {
   name: "CHINA HOUSE",
@@ -25,6 +26,50 @@ function PhoneIcon() {
     <svg aria-hidden="true" viewBox="0 0 24 24" className="h-6 w-6 shrink-0" fill="none" stroke="currentColor" strokeWidth="2">
       <path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.3 19.3 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 2 .8 2.9a2 2 0 0 1-.5 2.1L8.1 10a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.5c.9.4 1.9.7 2.9.8a2 2 0 0 1 1.6 1.9Z" />
     </svg>
+  );
+}
+
+function MapEmbed({ className }) {
+  const containerRef = useRef(null);
+  const [shouldLoad, setShouldLoad] = useState(false);
+  const [isLoaded, setIsLoaded] = useState(false);
+
+  useEffect(() => {
+    const container = containerRef.current;
+    if (!container) return undefined;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setShouldLoad(true);
+          observer.disconnect();
+        }
+      },
+      { rootMargin: "300px" }
+    );
+
+    observer.observe(container);
+    return () => observer.disconnect();
+  }, []);
+
+  return (
+    <div ref={containerRef} className={`relative overflow-hidden bg-[#f3e2d3] ${className}`}>
+      {!isLoaded && (
+        <div className="absolute inset-0 flex items-center justify-center text-center text-sm font-semibold text-black/65">
+          Loading map…
+        </div>
+      )}
+      {shouldLoad && (
+        <iframe
+          className="relative h-full w-full border-0"
+          title="Map showing China House in Fairburn, Georgia"
+          src="https://maps.google.com/maps?q=China+House,+17+Hudson+Plz,+Fairburn,+GA+30213&t=&z=15&ie=UTF8&iwloc=&output=embed"
+          loading="lazy"
+          referrerPolicy="no-referrer-when-downgrade"
+          onLoad={() => setIsLoaded(true)}
+        />
+      )}
+    </div>
   );
 }
 
@@ -86,12 +131,7 @@ function Location() {
         <h3 className="absolute top-[7px] left-[117px] flex h-[57px] w-[163px] items-center justify-center [font-family:'Inter-SemiBold',Helvetica] text-center text-2xl font-semibold leading-[34.8px] tracking-[-0.12px] text-black">
           Google Maps
         </h3>
-        <iframe
-          className="absolute top-[66px] left-0 h-[397px] w-[508px] border-0"
-          title="Map showing China House in Fairburn, Georgia"
-          src="https://maps.google.com/maps?q=China+House,+17+Hudson+Plz,+Fairburn,+GA+30213&t=&z=15&ie=UTF8&iwloc=&output=embed"
-          loading="lazy"
-        />
+        <MapEmbed className="absolute top-[66px] left-0 h-[397px] w-[508px]" />
         <figure className="absolute top-0 left-[553px] m-0 w-[508px]">
           <figcaption className="flex h-[57px] items-center justify-center [font-family:'Inter-SemiBold',Helvetica] text-center text-2xl font-semibold leading-[34.8px] tracking-[-0.12px] text-black">
             Front View
@@ -135,7 +175,7 @@ function Location() {
       <div className="mt-8 grid gap-6 sm:grid-cols-2">
         <figure className="m-0">
           <figcaption className="mb-3 text-lg font-semibold sm:text-xl">Google Maps</figcaption>
-          <iframe className="h-[180px] w-full rounded-xl border-0 sm:h-[240px]" title="Map showing China House in Fairburn, Georgia" src="https://maps.google.com/maps?q=China+House,+17+Hudson+Plz,+Fairburn,+GA+30213&t=&z=15&ie=UTF8&iwloc=&output=embed" loading="lazy" />
+          <MapEmbed className="h-[180px] w-full rounded-xl sm:h-[240px]" />
         </figure>
         <figure className="m-0">
           <figcaption className="mb-3 text-lg font-semibold sm:text-xl">Front View</figcaption>

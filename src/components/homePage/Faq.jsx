@@ -3,7 +3,7 @@ import { useState } from "react";
 const questions = [
   {
     question: "What is the purpose of an order list and how can I use it to place an order?",
-    answer: "An order list helps you plan your thoughts out before ordering to ensure you don’t forget to order anything. You are given an order number when you finish your order that you can provide to the cashier in the front or via phone (770)-964-0099 to place your order.",
+    answer: "An order list helps you plan your thoughts out before ordering. You can head to the front register or call (770) 964-0099 to place your order. \nDisclaimer: An order list does not automatically place the order for you.",
   },
   {
     question: "Do you guys have any delivery services?",
@@ -19,7 +19,7 @@ const questions = [
   },
   {
     question: "Am I able to make special requests for my food?",
-    answer: "Yes! We try our best to accommodate for our customers! Any requests that we can not fulfill we will let you know. Just leave a note on the order list tab under the item you would like to customize or talk to the cashier in the front.",
+    answer: "Yes! We try our best to accommodate for our customers! Any requests that we can not fulfill we will let you know. Just leave a note on the order list tab under the item you would like to customize and tell to the cashier.",
   },
   {
     question: "What are your business hours?",
