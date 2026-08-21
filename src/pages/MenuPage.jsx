@@ -3,6 +3,7 @@ import Header from "../components/layout/Header.jsx";
 import Footer from "../components/layout/Footer.jsx";
 import Scroller from "../components/menuPage/Scroller.jsx";
 import Menu from "../components/menuPage/Menu.jsx";
+import MenuImageGallery from "../components/menuPage/MenuImageGallery.jsx";
 import { menuCategories, menuItems } from "../data/menu.js";
 
 function MenuPage() {
@@ -23,6 +24,9 @@ function MenuPage() {
       <Menu selectedCategory={selectedCategory}
             items={displayedItems}
       />
+      <div className="mt-8">
+        <MenuImageGallery />
+      </div>
     </main>
     <Footer />
     </>
