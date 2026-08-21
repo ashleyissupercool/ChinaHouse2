@@ -14,9 +14,18 @@ function OrderListPage() {
     <Header />
     <main className="mx-auto min-h-[500px] w-full max-w-[1204px] px-4 py-10 sm:px-6">
       <h1 className="text-3xl font-black">YOUR ORDER</h1>
+      <aside className="mt-4 rounded-xl border-2 border-[#b91c1c] bg-white px-5 py-4 text-center shadow-sm" role="alert" aria-label="Order placement notice">
+        <p className="text-lg font-black uppercase tracking-wide text-[#991b1b] sm:text-xl">Important: this order is not placed automatically.</p>
+        <p className="mt-1 text-sm font-bold text-black sm:text-base">Please come inside or call us to place and confirm your order.</p>
+      </aside>
       <section className="mt-6 rounded-[15px] border border-black/20 bg-[#f8dede] p-5">
         {orderItems.length === 0 ? (
-          <p className="text-black/60">Your order list is empty.</p>
+          <div>
+            <p className="text-black/60">Your order list is empty.</p>
+            <a href="/menu" className="mt-4 inline-flex rounded-lg bg-[#4a4a4a] px-5 py-2.5 font-semibold text-white transition-colors hover:bg-black">
+              Add to Order
+            </a>
+          </div>
         ) : (
           <ul className="space-y-3">
             {orderItems.map((item) => {
@@ -97,13 +106,18 @@ function OrderListPage() {
         )}
 
         {orderItems.length > 0 && (
-          <button
-            type="button"
-            onClick={() => setShowPlaceOrderMessage(true)}
-            className="mt-6 w-full rounded-lg bg-[#4a4a4a] px-5 py-3 text-lg font-semibold text-white transition-colors hover:bg-black"
-          >
-            Place Order
-          </button>
+          <div className="mt-6 flex flex-col gap-3 sm:flex-row">
+            <a href="/menu" className="rounded-lg border border-black/25 px-5 py-3 text-center text-lg font-semibold transition-colors hover:bg-black/5">
+              ADD MORE TO ORDER
+            </a>
+            <button
+              type="button"
+              onClick={() => setShowPlaceOrderMessage(true)}
+              className="flex-1 rounded-lg bg-[#4a4a4a] px-5 py-3 text-lg font-semibold text-white transition-colors hover:bg-black"
+            >
+              DONE
+            </button>
+          </div>
         )}
       </section>
 

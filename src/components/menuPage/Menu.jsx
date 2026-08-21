@@ -39,23 +39,100 @@ function Menu({ selectedCategory, items }) {
   }
 
   return (
-    <section className="relative mx-auto mt-3 h-[calc(100dvh-185px)] min-h-[360px] w-full max-w-[1204px] overflow-y-auto overscroll-contain rounded-[15px] border border-solid border-[#00000052] bg-[#f8dede] p-2 sm:mt-8 sm:h-auto sm:min-h-[692px] sm:p-[30px]" aria-label={`${selectedCategory} menu items`} aria-live="polite">
+    <section className="relative mx-auto mt-3 h-[calc(100dvh-185px)] min-h-[360px] w-full max-w-[1204px] overflow-y-auto rounded-[15px] border border-solid border-[#00000052] bg-[#f8dede] p-2 sm:mt-8 sm:h-auto sm:min-h-[692px] sm:overflow-visible sm:p-[30px]" aria-label={`${selectedCategory} menu items`} aria-live="polite">
+      {selectedCategory === "Lunch Special" && (
+        <div className="mb-3 rounded-lg border border-black/15 bg-white/70 p-3 text-center sm:mb-5 sm:rounded-xl sm:p-5">
+          <h2 className="text-lg font-bold sm:text-2xl">Lunch Specials</h2>
+          <p className="mt-1 text-sm font-semibold sm:text-base">Monday – Saturday · 11:00 AM – 3:00 PM</p>
+          <p className="mt-2 text-xs text-black/70 sm:text-sm">Served with Fried Rice and a drink of choice.</p>
+          <p className="text-xs text-black/70 sm:text-sm">Add Shrimp or Beef Fried Rice for $1.50 (add to note).</p>
+        </div>
+      )}
+      {selectedCategory === "Dinner Combo" && (
+        <div className="mb-3 rounded-lg border border-black/15 bg-white/70 p-3 text-center sm:mb-5 sm:rounded-xl sm:p-5">
+          <h2 className="text-lg font-bold sm:text-2xl">Combination</h2>
+          <p className="mt-1 text-sm font-semibold sm:text-base">Serving All Day</p>
+          <p className="mt-1 text-xs text-black/70 sm:text-sm">Served with Fried Rice and an egg roll.</p>
+          <p className="text-xs text-black/70 sm:text-sm">Add Shrimp or Beef Fried Rice for $1.50 (add to note).</p>
+        </div>
+      )}
+      {selectedCategory === "Soups" && (
+        <div className="mb-3 rounded-lg border border-black/15 bg-white/70 p-3 text-center sm:mb-5 sm:rounded-xl sm:p-5">
+          <h2 className="text-lg font-bold sm:text-2xl">Soup</h2>
+          <p className="mt-1 text-xs text-black/70 sm:text-sm">Served with crispy noodles.</p>
+        </div>
+      )}
+      {selectedCategory === "Egg Foo Young" && (
+        <div className="mb-3 rounded-lg border border-black/15 bg-white/70 p-3 text-center sm:mb-5 sm:rounded-xl sm:p-5">
+          <h2 className="text-lg font-bold sm:text-2xl">Egg Foo Young</h2>
+          <p className="mt-1 text-xs text-black/70 sm:text-sm">Served with white rice.</p>
+          <p className="text-xs text-black/70 sm:text-sm">Each order includes three patties.</p>
+        </div>
+      )}
+      {selectedCategory === "Vegetable" && (
+        <div className="mb-3 rounded-lg border border-black/15 bg-white/70 p-3 text-center sm:mb-5 sm:rounded-xl sm:p-5">
+          <h2 className="text-lg font-bold sm:text-2xl">Vegetable</h2>
+          <p className="mt-1 text-xs text-black/70 sm:text-sm">Served with white rice.</p>
+        </div>
+      )}
+      {selectedCategory === "Poultry" && (
+        <div className="mb-3 rounded-lg border border-black/15 bg-white/70 p-3 text-center sm:mb-5 sm:rounded-xl sm:p-5">
+          <h2 className="text-lg font-bold sm:text-2xl">Poultry</h2>
+          <p className="mt-1 text-xs text-black/70 sm:text-sm">Served with white rice.</p>
+        </div>
+      )}
+      {selectedCategory === "Mei Fun" && (
+        <div className="mb-3 rounded-lg border border-black/15 bg-white/70 p-3 text-center sm:mb-5 sm:rounded-xl sm:p-5">
+          <h2 className="text-lg font-bold sm:text-2xl">Mei Fun</h2>
+          <p className="mt-1 text-xs text-black/70 sm:text-sm">Thin rice noodles.</p>
+        </div>
+      )}
+      {selectedCategory === "Shrimp" && (
+        <div className="mb-3 rounded-lg border border-black/15 bg-white/70 p-3 text-center sm:mb-5 sm:rounded-xl sm:p-5">
+          <h2 className="text-lg font-bold sm:text-2xl">Shrimp</h2>
+          <p className="mt-1 text-xs text-black/70 sm:text-sm">Served with white rice.</p>
+        </div>
+      )}
+      {selectedCategory === "Sweet & Sour" && (
+        <div className="mb-3 rounded-lg border border-black/15 bg-white/70 p-3 text-center sm:mb-5 sm:rounded-xl sm:p-5">
+          <h2 className="text-lg font-bold sm:text-2xl">Sweet &amp; Sour</h2>
+          <p className="mt-1 text-xs text-black/70 sm:text-sm">Served with white rice.</p>
+        </div>
+      )}
+      {selectedCategory === "Beef" && (
+        <div className="mb-3 rounded-lg border border-black/15 bg-white/70 p-3 text-center sm:mb-5 sm:rounded-xl sm:p-5">
+          <h2 className="text-lg font-bold sm:text-2xl">Beef</h2>
+          <p className="mt-1 text-xs text-black/70 sm:text-sm">Served with white rice.</p>
+        </div>
+      )}
+      {selectedCategory === "Chefs Specialties" && (
+        <div className="mb-3 rounded-lg border border-black/15 bg-white/70 p-3 text-center sm:mb-5 sm:rounded-xl sm:p-5">
+          <h2 className="text-lg font-bold sm:text-2xl">Chef&apos;s Specialties</h2>
+          <p className="mt-1 text-xs text-black/70 sm:text-sm">Served with white rice.</p>
+        </div>
+      )}
       {items.length === 0 ? (
         <p className="py-12 text-center text-lg text-black/60">No items have been added to this category yet.</p>
       ) : (
         <div className="grid gap-2 sm:gap-4 md:grid-cols-2">
           {items.map((item) => (
-            <article key={item.id} className="rounded-lg border border-black/15 bg-white/70 p-2 shadow-sm sm:rounded-xl sm:p-5">
-              <h2 className="text-sm font-bold sm:text-xl">{item.name}</h2>
+            <article key={item.id} className="flex flex-col rounded-lg border border-black/15 bg-white/70 p-2 shadow-sm sm:rounded-xl sm:p-5">
+              <h2 className={`flex items-center gap-1 text-sm font-bold sm:gap-2 sm:text-xl ${item.spicy ? "text-red-600" : ""}`}>
+                {item.name}
+                {item.spicy && <span role="img" aria-label="Spicy">🌶️</span>}
+              </h2>
+              {item.description && <p className="mt-1 text-xs text-black/65 sm:text-sm">{item.description}</p>}
               {item.options ? (
                 <>
-                  <p className="mt-2 text-xs text-black/65 sm:mt-4 sm:text-sm">Choose how you would like your order served.</p>
-                  <button type="button" onClick={() => openOptions(item)} className="mt-3 w-full rounded-md bg-[#4a4a4a] px-2 py-1.5 text-xs font-semibold text-white transition-colors hover:bg-black sm:mt-5 sm:rounded-lg sm:px-4 sm:py-2.5 sm:text-base">Choose Options</button>
+                  <p className="mt-2 text-xs text-black/65 sm:mt-4 sm:text-sm">{item.optionPrompt ?? "Choose how you would like your order served."}</p>
+                  <div className="mt-auto pt-3 sm:pt-5">
+                    <button type="button" onClick={() => openOptions(item)} className="w-full rounded-md bg-[#4a4a4a] px-2 py-1.5 text-xs font-semibold text-white transition-colors hover:bg-black sm:rounded-lg sm:px-4 sm:py-2.5 sm:text-base">Choose Options</button>
+                  </div>
                 </>
               ) : (
                 <>
                   <p className="mt-2 text-sm font-semibold sm:mt-4 sm:text-lg">${item.price.toFixed(2)}</p>
-                  <div className="mt-2 flex gap-2 sm:mt-5 sm:gap-3">
+                  <div className="mt-auto flex gap-3 pt-2 sm:gap-5 sm:pt-5">
                     <div className="w-[66px] text-[11px] font-medium sm:w-24 sm:text-sm">Quantity
                       <QuantityControl
                         quantity={selectedQuantities[item.id] ?? 1}
@@ -63,7 +140,7 @@ function Menu({ selectedCategory, items }) {
                         onIncrease={() => setSelectedQuantities((current) => ({ ...current, [item.id]: (current[item.id] ?? 1) + 1 }))}
                       />
                     </div>
-                    <button type="button" onClick={() => handleAdd(item)} className="mt-[15px] flex-1 rounded-md bg-[#4a4a4a] px-2 py-1.5 text-xs font-semibold text-white transition-colors hover:bg-black sm:mt-[21px] sm:rounded-lg sm:px-4 sm:py-2.5 sm:text-base">Add to Order</button>
+                    <button type="button" onClick={() => handleAdd(item)} className="h-[27px] flex-1 self-end rounded-md bg-[#4a4a4a] px-2 text-xs font-semibold text-white transition-colors hover:bg-black sm:h-[42px] sm:rounded-lg sm:px-4 sm:text-base">Add to Order</button>
                   </div>
                 </>
               )}
@@ -84,7 +161,7 @@ function Menu({ selectedCategory, items }) {
                 </button>
               ))}
             </div>
-            <div className="mt-5 flex items-end gap-3">
+            <div className="mt-5 flex items-end gap-5 sm:gap-6">
               <div className="w-24 text-sm font-medium">Quantity
                 <QuantityControl quantity={customQuantity} onDecrease={() => setCustomQuantity((quantity) => Math.max(1, quantity - 1))} onIncrease={() => setCustomQuantity((quantity) => quantity + 1)} />
               </div>

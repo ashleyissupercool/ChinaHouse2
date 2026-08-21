@@ -1,6 +1,13 @@
 import featuredImage from "../../assets/sesamechickenplate.png";
+import { useState } from "react";
+import { useOrder } from "../../context/order.js";
+
+const sesameChickenCombo = { id: "highlight-sesame-chicken-combo", name: "Sesame Chicken (Combo)", price: 11.50 };
 
 function Hero() {
+  const { addToOrder } = useOrder();
+  const [addedItemName, setAddedItemName] = useState("");
+
   return (
     <div className="w-full max-w-[1283px] mx-auto px-4 md:px-8">
       <div className="w-full flex flex-col gap-8 md:flex-row md:items-start md:gap-5 lg:gap-8">
@@ -20,8 +27,8 @@ function Hero() {
             </a>
 
             <a href="/menu" className="flex h-[44px] w-[190px] items-center justify-center rounded-lg bg-[#ff8e8e] transition-colors hover:bg-[#ff7575] lg:h-[50px] lg:w-[253px]">
-              <span className="whitespace-nowrap text-center text-[16px] font-medium tracking-[-0.12px] text-black lg:text-[22px]" >
-                CREATE AN ORDER
+              <span className="whitespace-nowrap text-center text-[16px] font-medium tracking-[-0.12px] text-black lg:text-[20px]" >
+                CREATE AN ORDER LIST
               </span>
             </a>
           </div>
@@ -83,19 +90,17 @@ function Hero() {
                 id="menu-item-title"
                 className="[font-family:'Inter-Medium',Helvetica] text-xl font-medium leading-[29px] tracking-[-0.02px] text-black max-[375px]:text-[16px] max-[375px]:leading-[19px] max-[280px]:text-[13px] max-[280px]:leading-[15px]"
               >
-                Sesame Chicken w. Fried Rice
+                Sesame Chicken <span className="[font-family:'Inter-BoldItalic',Helvetica] font-bold italic text-[#f40000]">(Combo)</span>
               </h2>
               <p className="text-base leading-[23.2px] tracking-[-0.01px] max-[375px]:text-[13px] max-[375px]:leading-[16px] max-[280px]:text-[11px] max-[280px]:leading-[13px]">
-                <span className="[font-family:'Inter-BoldItalic',Helvetica] font-bold italic text-[#f40000]">
-                  combo
-                </span>
                 <span className="[font-family:'Inter-MediumItalic',Helvetica] font-medium italic text-black">
-                  {" "}served w. an egg roll
+                  w. Fried Rice &amp; Egg Roll · $11.50
                 </span>
               </p>
             </div>
             <button
               type="button"
+              onClick={() => { addToOrder(sesameChickenCombo, undefined, 1, "w. Fried Rice & Egg Roll"); setAddedItemName(sesameChickenCombo.name); }}
               className="absolute right-5 top-[132px] flex h-[30px] w-32 cursor-pointer items-center justify-center rounded-lg bg-[#ff8e8e] [font-family:'Inter-Medium',Helvetica] text-xs font-medium leading-[23.2px] tracking-[-0.08px] text-black transition-colors hover:bg-[#ff7777] active:bg-[#ff6969] max-[375px]:top-[126px] max-[280px]:right-3 max-[280px]:top-[112px] max-[280px]:h-[27px] max-[280px]:w-[112px] max-[280px]:translate-x-0 max-[280px]:text-[10px] lg:left-[284px] lg:right-auto lg:top-[107px] lg:h-[33px] lg:w-40 lg:text-base"
             >
               ADD TO ORDER
@@ -103,6 +108,18 @@ function Hero() {
           </article>
         </div>
       </div>
+      {addedItemName && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/35 px-4" role="dialog" aria-modal="true" aria-labelledby="hero-added-to-order-title">
+          <div className="w-full max-w-md rounded-2xl bg-white p-6 text-center shadow-xl">
+            <h2 id="hero-added-to-order-title" className="text-2xl font-bold">Added to your order</h2>
+            <p className="mt-2 text-black/70">{addedItemName} has been added.</p>
+            <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:justify-center">
+              <a href="/order-list" className="rounded-lg bg-[#4a4a4a] px-5 py-2.5 font-semibold text-white transition-colors hover:bg-black">View Order List</a>
+              <button type="button" onClick={() => setAddedItemName("")} className="rounded-lg border border-black/25 px-5 py-2.5 font-semibold transition-colors hover:bg-black/5">Keep Browsing</button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
