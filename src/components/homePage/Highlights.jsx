@@ -5,7 +5,6 @@ import GeneralTsoChickenSection from "./highlightComp/general.jsx";
 import HoneyChickenSection from "./highlightComp/honey.jsx";
 import PepperSteakSection from "./highlightComp/pepper.jsx";
 import EggFooYoungSection from "./highlightComp/shrimpEgg.jsx";
-import SesameChickenSection from "./highlightComp/sesame.jsx";
 import { useState } from "react";
 
 function Highlights() {
@@ -32,9 +31,7 @@ function Highlights() {
           <div className="relative h-[274px] w-[254px] shrink-0 [&>article]:origin-top-left [&>article]:scale-[0.6] sm:h-[456px] sm:w-[423px] sm:[&>article]:scale-100"><GeneralTsoChickenSection onAdded={setAddedItemName} /></div>
           <div className="relative h-[274px] w-[254px] shrink-0 [&>article]:origin-top-left [&>article]:scale-[0.6] sm:h-[456px] sm:w-[423px] sm:[&>article]:scale-100"><HoneyChickenSection onAdded={setAddedItemName} /></div>
           <div className="relative h-[274px] w-[254px] shrink-0 [&>article]:origin-top-left [&>article]:scale-[0.6] sm:h-[456px] sm:w-[423px] sm:[&>article]:scale-100"><PepperSteakSection onAdded={setAddedItemName} /></div>
-          <div className="relative h-[274px] w-[254px] shrink-0 [&>article]:origin-top-left [&>article]:scale-[0.6] sm:h-[456px] sm:w-[423px] sm:[&>article]:scale-100"><EggFooYoungSection onAdded={setAddedItemName} /></div>
-          <div className="relative h-[274px] w-[254px] shrink-0 [&>article]:origin-top-left [&>article]:scale-[0.6] sm:h-[456px] sm:w-[423px] sm:[&>article]:scale-100"><SesameChickenSection onAdded={setAddedItemName} /></div>
-        </div>
+          <div className="relative h-[274px] w-[254px] shrink-0 [&>article]:origin-top-left [&>article]:scale-[0.6] sm:h-[456px] sm:w-[423px] sm:[&>article]:scale-100"><EggFooYoungSection onAdded={setAddedItemName} /></div>        </div>
       </main>
       {addedItemName && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/35 px-4" role="dialog" aria-modal="true" aria-labelledby="highlight-added-to-order-title">
